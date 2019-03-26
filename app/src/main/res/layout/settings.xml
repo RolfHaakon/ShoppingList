@@ -48,7 +48,6 @@
         android:text="White"
         android:layout_marginTop="400dp"
         android:layout_gravity="center_horizontal"
-        android:onClick="goWhite"
         />
 
     <Button
@@ -58,7 +57,6 @@
         android:text="Red"
         android:layout_marginTop="340dp"
         android:layout_gravity="center_horizontal"
-        android:onClick="goRed"
         />
 
     <Button
@@ -68,7 +66,6 @@
         android:text="Blue"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="280dp"
-        android:onClick="goBlue"
         />
 
 </android.support.design.widget.CoordinatorLayout>

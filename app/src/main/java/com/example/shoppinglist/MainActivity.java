@@ -1,6 +1,7 @@
 package com.example.shoppinglist;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
@@ -31,14 +32,9 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<String> shoppingList = null;
     ArrayAdapter<String> adapter = null;
     ListView lv = null;
-    int color = 0;
-    Button buttonWhite;
-    Button buttonRed;
-    Button buttonBlue;
 
 
-
-
+    //onCreate method
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,64 +42,18 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         view= this.getWindow().getDecorView();
-        //Spinner settingSpinner = (Spinner) findViewById(R.id.setting_spinner);
-        //List<String> list = new ArrayList<String>();
-        //list.add("list 1");
-        //list.add("list 2");
-        //list.add("list 3");
-        //ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
-        //        android.R.layout.simple_spinner_item, list);
-        //dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        //settingSpinner.setAdapter(dataAdapter);
-        //settingSpinner.setSelection(0);
-        //String color = String.valueOf(settingSpinner.getSelectedItem());
-        buttonWhite = findViewById(R.id.button_white);
-        buttonRed = findViewById(R.id.button_red);
-        buttonBlue = findViewById(R.id.button_blue);
-
-        buttonWhite.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                color = 0;
-            }
-        });
-
-        buttonRed.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                color = 2;
-            }
-        });
-
-        buttonBlue.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                color = 1;
-            }
-        });
-
-        if (color == 1) {
-            view.setBackgroundResource(R.color.Blue);
-        }
-        if (color == 2) {
-            view.setBackgroundResource(R.color.Red);
-        }
-        else
-            view.setBackgroundResource(R.color.White);
-
         shoppingList = getArrayVal(getApplicationContext());
-
-
         adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, shoppingList);
         lv = (ListView) findViewById(R.id.listView);
         lv.setAdapter(adapter);
 
+
+
     }
 
-
+    //Inflate the menu
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }

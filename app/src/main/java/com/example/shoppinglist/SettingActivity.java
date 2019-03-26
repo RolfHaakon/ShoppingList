@@ -1,16 +1,22 @@
 package com.example.shoppinglist;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Spinner;
 
+
 import static com.example.shoppinglist.R.id.button_white;
 
 public class SettingActivity extends MainActivity {
     View view;
+    Button buttonWhite;
+    Button buttonRed;
+    Button buttonBlue;
+    int color;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,19 +26,47 @@ public class SettingActivity extends MainActivity {
         view= this.getWindow().getDecorView();
 
 
+        buttonWhite = findViewById(R.id.button_white);
+        buttonRed = findViewById(R.id.button_red);
+        buttonBlue = findViewById(R.id.button_blue);
 
 
-        Button white = (Button) findViewById(R.id.button_white);
+        buttonWhite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                color = 0;
+                //view.setBackgroundColor(Color.WHITE);
+                view.setBackgroundResource(R.color.White);
+
+            }
+        });
+
+        buttonRed.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                color = 2;
+                //view.setBackgroundColor(Color.RED);
+                view.setBackgroundResource(R.color.Red);
+            }
+        });
+
+        buttonBlue.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                color = 1;
+                //view.setBackgroundColor(Color.BLUE);
+                view.setBackgroundResource(R.color.Blue);
+
+            }
+        });
+
+
         Button next = (Button) findViewById(R.id.setting_button);
-        //String backgroundColor =  String.valueOf(R.id.setting_spinner);
-        //Spinner settingSpinner = (Spinner) findViewById(R.id.setting_spinner);
-        //final String bColor = String.valueOf(settingSpinner.getSelectedItem());
 
         next.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                //view.setBackgroundResource(Integer.parseInt(bColor));
                 Intent intent = new Intent(SettingActivity.this, MainActivity.class);
-                startActivityForResult(intent, 0);
+                startActivityForResult(intent,0);
 
             }
 
@@ -42,7 +76,6 @@ public class SettingActivity extends MainActivity {
 
 
     }
-
 
 }
 
