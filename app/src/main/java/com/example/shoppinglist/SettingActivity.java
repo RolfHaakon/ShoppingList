@@ -7,20 +7,22 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Spinner;
 
+import static com.example.shoppinglist.R.id.button_white;
+
 public class SettingActivity extends MainActivity {
     View view;
-
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.settings);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        view= this.getWindow().getDecorView();
 
 
-        //view= this.getWindow().getDecorView();
-        //view.setBackgroundResource(R.color.Blue);
 
+
+        Button white = (Button) findViewById(R.id.button_white);
         Button next = (Button) findViewById(R.id.setting_button);
         //String backgroundColor =  String.valueOf(R.id.setting_spinner);
         //Spinner settingSpinner = (Spinner) findViewById(R.id.setting_spinner);
@@ -41,4 +43,6 @@ public class SettingActivity extends MainActivity {
 
     }
 
+
 }
+

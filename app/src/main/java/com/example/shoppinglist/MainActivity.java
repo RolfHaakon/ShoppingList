@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import android.app.AlertDialog;
 import android.widget.EditText;
@@ -30,6 +31,12 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<String> shoppingList = null;
     ArrayAdapter<String> adapter = null;
     ListView lv = null;
+    int color = 0;
+    Button buttonWhite;
+    Button buttonRed;
+    Button buttonBlue;
+
+
 
 
     @Override
@@ -39,26 +46,50 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         view= this.getWindow().getDecorView();
-        Spinner settingSpinner = (Spinner) findViewById(R.id.setting_spinner);
-        settingSpinner.setSelection(0);
-        String color = String.valueOf(settingSpinner.getSelectedItem());
+        //Spinner settingSpinner = (Spinner) findViewById(R.id.setting_spinner);
+        //List<String> list = new ArrayList<String>();
+        //list.add("list 1");
+        //list.add("list 2");
+        //list.add("list 3");
+        //ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
+        //        android.R.layout.simple_spinner_item, list);
+        //dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        //settingSpinner.setAdapter(dataAdapter);
+        //settingSpinner.setSelection(0);
+        //String color = String.valueOf(settingSpinner.getSelectedItem());
+        buttonWhite = findViewById(R.id.button_white);
+        buttonRed = findViewById(R.id.button_red);
+        buttonBlue = findViewById(R.id.button_blue);
 
-        if (color == "Red") {
-            view.setBackgroundResource(R.color.White);
+        buttonWhite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                color = 0;
+            }
+        });
+
+        buttonRed.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                color = 2;
+            }
+        });
+
+        buttonBlue.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                color = 1;
+            }
+        });
+
+        if (color == 1) {
+            view.setBackgroundResource(R.color.Blue);
         }
-        if (color == "Red") {
+        if (color == 2) {
             view.setBackgroundResource(R.color.Red);
         }
         else
-            view.setBackgroundResource(R.color.Blue);
-
-        //view= this.getWindow().getDecorView();
-        //view.setBackgroundResource(R.color.Blue);
-        //String backgroundColor =  String.valueOf(R.id.setting_spinner);
-        //view.setBackgroundResource(R.color.backgroundColor);
-
-
-
+            view.setBackgroundResource(R.color.White);
 
         shoppingList = getArrayVal(getApplicationContext());
 
@@ -148,4 +179,6 @@ public class MainActivity extends AppCompatActivity {
         tempSet = WordSearchGetPrefs.getStringSet("myArray", tempSet);
         return new ArrayList<String>(tempSet);
     }
+
 }
+
