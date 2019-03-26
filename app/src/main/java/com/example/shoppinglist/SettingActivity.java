@@ -29,6 +29,8 @@ public class SettingActivity extends MainActivity {
         buttonWhite = findViewById(R.id.button_white);
         buttonRed = findViewById(R.id.button_red);
         buttonBlue = findViewById(R.id.button_blue);
+        Button next = (Button) findViewById(R.id.setting_button);
+
 
 
         buttonWhite.setOnClickListener(new View.OnClickListener() {
@@ -61,11 +63,11 @@ public class SettingActivity extends MainActivity {
         });
 
 
-        Button next = (Button) findViewById(R.id.setting_button);
 
         next.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent intent = new Intent(SettingActivity.this, MainActivity.class);
+                intent.putExtra("color", color);
                 startActivityForResult(intent,0);
 
             }

@@ -26,6 +26,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.app.Activity;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     View view;
@@ -41,7 +42,20 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        Intent intent = getIntent();
+        int color = intent.getIntExtra("color", 0);
+        Toast.makeText(MainActivity.this,String.valueOf(color), Toast.LENGTH_LONG).show();
         view= this.getWindow().getDecorView();
+        if (color == 2){
+            view.setBackgroundResource(R.color.Red);
+        }
+        if (color == 1 ) {
+            view.setBackgroundResource(R.color.Blue);
+        }
+        if (color == 0) {
+            view.setBackgroundResource(R.color.White);
+        }
         shoppingList = getArrayVal(getApplicationContext());
         adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, shoppingList);
         lv = (ListView) findViewById(R.id.listView);
@@ -59,12 +73,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
+    //Handle action bar
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
