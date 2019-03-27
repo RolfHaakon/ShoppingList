@@ -1,31 +1,26 @@
 package com.example.shoppinglist;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.Collections;
-
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
+
 import android.app.AlertDialog;
 import android.widget.EditText;
 import android.content.DialogInterface;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.app.Activity;
-import android.widget.Spinner;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -34,7 +29,6 @@ public class MainActivity extends AppCompatActivity {
     ArrayAdapter<String> adapter = null;
     ListView lv = null;
 
-
     //onCreate method
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +36,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        shoppingList = getArrayVal(getApplicationContext());
+        adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, shoppingList);
+        lv = (ListView) findViewById(R.id.listView);
+        lv.setAdapter(adapter);
         Intent intent = getIntent();
         int color = intent.getIntExtra("color", 0);
         Toast.makeText(MainActivity.this,String.valueOf(color), Toast.LENGTH_LONG).show();
@@ -56,12 +53,6 @@ public class MainActivity extends AppCompatActivity {
         if (color == 0) {
             view.setBackgroundResource(R.color.White);
         }
-        shoppingList = getArrayVal(getApplicationContext());
-        adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, shoppingList);
-        lv = (ListView) findViewById(R.id.listView);
-        lv.setAdapter(adapter);
-
-
 
     }
 
@@ -108,6 +99,7 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
 
+        //Clear the shopping list
         if (id == R.id.action_clear) {
             shoppingList.clear();
             lv.setAdapter(adapter);
@@ -115,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
+    //Set first letter uppercase, rest lower
     public static String preferredCase(String original)
     {
         if (original.isEmpty())
