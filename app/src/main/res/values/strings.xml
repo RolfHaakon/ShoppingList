@@ -4,6 +4,11 @@
     <string name="action_add">Add Item</string>
     <string name="action_clear">Clear List</string>
     <string name="background_prompt">White</string>
+    <string name="settings_text">Settings</string>
+    <string name="confirm_button">Confirm</string>
+    <string name="white_button">White</string>
+    <string name="red_button">Red</string>
+    <string name="blue_button">Blue</string>
 
     <string-array name="background_arrays">
         <item>White</item>

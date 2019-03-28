@@ -24,7 +24,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Settings"
+        android:text="@string/settings_text"
         android:textSize="24sp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="12dp"
@@ -38,14 +38,14 @@
         android:layout_marginBottom="80dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="500dp"
-        android:text="Confirm"
+        android:text="@string/confirm_button"
         />
 
     <Button
         android:id="@+id/button_white"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="White"
+        android:text="@string/white_button"
         android:layout_marginTop="400dp"
         android:layout_gravity="center_horizontal"
         />
@@ -54,7 +54,7 @@
         android:id="@+id/button_red"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Red"
+        android:text="@string/red_button"
         android:layout_marginTop="340dp"
         android:layout_gravity="center_horizontal"
         />
@@ -63,7 +63,7 @@
         android:id="@+id/button_blue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Blue"
+        android:text="@string/blue_button"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="280dp"
         />

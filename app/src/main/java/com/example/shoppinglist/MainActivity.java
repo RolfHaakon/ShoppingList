@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         shoppingList = getArrayVal(getApplicationContext());
         adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, shoppingList);
-        lv = (ListView) findViewById(R.id.listView);
+        lv =  findViewById(R.id.listView);
         lv.setAdapter(adapter);
         Intent intent = getIntent();
         int color = intent.getIntExtra("color", 0);
@@ -118,20 +118,19 @@ public class MainActivity extends AppCompatActivity {
 
     public static void storeArrayVal( ArrayList<String> inArrayList, Context context)
     {
-        Set<String> WhatToWrite = new HashSet<String>(inArrayList);
+        Set<String> WhatToWrite = new HashSet<>(inArrayList);
         SharedPreferences WordSearchPutPrefs = context.getSharedPreferences("dbArrayValues", Activity.MODE_PRIVATE);
         SharedPreferences.Editor prefEditor = WordSearchPutPrefs.edit();
         prefEditor.putStringSet("myArray", WhatToWrite);
-        prefEditor.commit();
+        prefEditor.apply();
     }
 
     public static ArrayList getArrayVal( Context dan)
     {
         SharedPreferences WordSearchGetPrefs = dan.getSharedPreferences("dbArrayValues",Activity.MODE_PRIVATE);
-        Set<String> tempSet = new HashSet<String>();
+        Set<String> tempSet = new HashSet<>();
         tempSet = WordSearchGetPrefs.getStringSet("myArray", tempSet);
-        return new ArrayList<String>(tempSet);
+        return new ArrayList<>(tempSet);
     }
-
 }
 
