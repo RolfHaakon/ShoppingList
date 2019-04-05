@@ -9,6 +9,7 @@
     <string name="white_button">White</string>
     <string name="red_button">Red</string>
     <string name="blue_button">Blue</string>
+    <string name="yellow_button">Yellow</string>
 
     <string-array name="background_arrays">
         <item>White</item>

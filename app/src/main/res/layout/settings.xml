@@ -51,11 +51,20 @@
         />
 
     <Button
+        android:id="@+id/button_yellow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/yellow_button"
+        android:layout_marginTop="360dp"
+        android:layout_gravity="center_horizontal"
+        />
+
+    <Button
         android:id="@+id/button_red"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/red_button"
-        android:layout_marginTop="340dp"
+        android:layout_marginTop="320dp"
         android:layout_gravity="center_horizontal"
         />
 

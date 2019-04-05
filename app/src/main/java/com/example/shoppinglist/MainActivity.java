@@ -44,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
         int color = intent.getIntExtra("color", 0);
         Toast.makeText(MainActivity.this,String.valueOf(color), Toast.LENGTH_LONG).show();
         view= this.getWindow().getDecorView();
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.drawable.ic_shopping);
         if (color == 2){
             view.setBackgroundResource(R.color.Red);
         }
@@ -52,6 +54,9 @@ public class MainActivity extends AppCompatActivity {
         }
         if (color == 0) {
             view.setBackgroundResource(R.color.White);
+        }
+        if (color == 3) {
+            view.setBackgroundResource(R.color.Yellow);
         }
 
     }
@@ -115,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
 
         return original.substring(0, 1).toUpperCase() + original.substring(1).toLowerCase();
     }
-
+    //Stores array
     public static void storeArrayVal( ArrayList<String> inArrayList, Context context)
     {
         Set<String> WhatToWrite = new HashSet<>(inArrayList);

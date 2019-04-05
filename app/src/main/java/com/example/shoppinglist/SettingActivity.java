@@ -6,6 +6,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 
+import java.util.Objects;
 
 
 public class SettingActivity extends MainActivity {
@@ -13,6 +14,7 @@ public class SettingActivity extends MainActivity {
     Button buttonWhite;
     Button buttonRed;
     Button buttonBlue;
+    Button buttonYellow;
     int color;
 
     public void onCreate(Bundle savedInstanceState) {
@@ -26,6 +28,7 @@ public class SettingActivity extends MainActivity {
         buttonWhite = findViewById(R.id.button_white);
         buttonRed = findViewById(R.id.button_red);
         buttonBlue = findViewById(R.id.button_blue);
+        buttonYellow = findViewById(R.id.button_yellow);
         Button next = findViewById(R.id.setting_button);
 
 
@@ -40,6 +43,14 @@ public class SettingActivity extends MainActivity {
             }
         });
 
+        buttonYellow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                color = 3;
+                //view.setBackgroundColor(Color.RED);
+                view.setBackgroundResource(R.color.Yellow);
+            }
+        });
         buttonRed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,11 +60,12 @@ public class SettingActivity extends MainActivity {
             }
         });
 
+
         buttonBlue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 color = 1;
-                //view.setBackgroundColor(Color.BLUE);
+                //view.setBackgroundColor(R.color.Blue);
                 view.setBackgroundResource(R.color.Blue);
 
             }
