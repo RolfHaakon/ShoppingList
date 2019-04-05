@@ -23,7 +23,20 @@ public class SettingActivity extends MainActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         view= this.getWindow().getDecorView();
-
+        //Intent intent = getIntent();
+        //int color = intent.getIntExtra("color", 0);
+        if (color == 2){
+            view.setBackgroundResource(R.color.Red);
+        }
+        if (color == 1 ) {
+            view.setBackgroundResource(R.color.Blue);
+        }
+        if (color == 0) {
+            view.setBackgroundResource(R.color.White);
+        }
+        if (color == 3) {
+            view.setBackgroundResource(R.color.Yellow);
+        }
 
         buttonWhite = findViewById(R.id.button_white);
         buttonRed = findViewById(R.id.button_red);

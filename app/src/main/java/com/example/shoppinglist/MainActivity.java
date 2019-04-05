@@ -28,6 +28,9 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<String> shoppingList = null;
     ArrayAdapter<String> adapter = null;
     ListView lv = null;
+    int color;
+
+
 
     //onCreate method
     @Override
@@ -77,9 +80,12 @@ public class MainActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             Intent myIntent = new Intent(MainActivity.this, SettingActivity.class);
+            myIntent.putExtra("color",color);
             startActivityForResult(myIntent, 0);
 
         }
+
+
         if (id == R.id.action_add) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle("Add Item");
